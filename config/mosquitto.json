@@ -1,0 +1,7 @@
+{
+    "mosquittoConnect":[
+        {"propertyName": "id", "value": "Client_ID"},
+        {"propertyName": "host", "value": "localhost"},
+        {"propertyName": "port", "value": 1883}
+    ]
+}

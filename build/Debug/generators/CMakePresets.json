@@ -35,6 +35,9 @@
             "configurePreset": "conan-debug",
             "execution": {
                 "jobs": 8
+            },
+            "environment": {
+                "OPENSSL_MODULES": "/home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib/ossl-modules"
             }
         }
     ]

@@ -99,6 +99,11 @@ kafkaclient: CMakeFiles/kafkaclient.dir/compiler_depend.ts
 kafkaclient: /home/patrik/.conan2/p/b/librd719f0131302b6/p/lib/librdkafka++.a
 kafkaclient: /home/patrik/.conan2/p/b/librd719f0131302b6/p/lib/librdkafka.a
 kafkaclient: /home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/lib/liblz4.a
+kafkaclient: /home/patrik/.conan2/p/b/mosquf0626929e3dfa/p/lib/libmosquittopp_static.a
+kafkaclient: /home/patrik/.conan2/p/b/mosquf0626929e3dfa/p/lib/libmosquitto_static.a
+kafkaclient: /home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib/libssl.a
+kafkaclient: /home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib/libcrypto.a
+kafkaclient: /home/patrik/.conan2/p/b/zlib6d03350220ae7/p/lib/libz.a
 kafkaclient: CMakeFiles/kafkaclient.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable kafkaclient"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kafkaclient.dir/link.txt --verbose=$(VERBOSE)

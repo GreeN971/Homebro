@@ -3,5 +3,6 @@ message(STATUS "Conan: It is recommended to use explicit find_package() per depe
 
 find_package(RdKafka)
 find_package(nlohmann_json)
+find_package(mosquitto)
 
-set(CONANDEPS_LEGACY  RdKafka::rdkafka++  nlohmann_json::nlohmann_json )
+set(CONANDEPS_LEGACY  RdKafka::rdkafka++  nlohmann_json::nlohmann_json  mosquitto::mosquitto )

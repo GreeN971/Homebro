@@ -132,15 +132,18 @@ else()
 set(CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
 
 # Definition of CMAKE_MODULE_PATH
+list(PREPEND CMAKE_MODULE_PATH "/home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib/cmake")
 # the generators folder (where conan generates files, like this toolchain)
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
 
 # Definition of CMAKE_PREFIX_PATH, CMAKE_XXXXX_PATH
+# The explicitly defined "builddirs" of "host" context dependencies must be in PREFIX_PATH
+list(PREPEND CMAKE_PREFIX_PATH "/home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib/cmake")
 # The Conan local "generators" folder, where this toolchain is saved.
 list(PREPEND CMAKE_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR} )
-list(PREPEND CMAKE_LIBRARY_PATH "/home/patrik/.conan2/p/b/librd719f0131302b6/p/lib" "/home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/lib")
-list(PREPEND CMAKE_INCLUDE_PATH "/home/patrik/.conan2/p/b/librd719f0131302b6/p/include" "/home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/include" "/home/patrik/.conan2/p/nlohmd014ef7748f4b/p/include")
-set(CONAN_RUNTIME_LIB_DIRS "/home/patrik/.conan2/p/b/librd719f0131302b6/p/lib" "/home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/lib" )
+list(PREPEND CMAKE_LIBRARY_PATH "/home/patrik/.conan2/p/b/librd719f0131302b6/p/lib" "/home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/lib" "/home/patrik/.conan2/p/b/mosquf0626929e3dfa/p/lib" "/home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib" "/home/patrik/.conan2/p/b/zlib6d03350220ae7/p/lib")
+list(PREPEND CMAKE_INCLUDE_PATH "/home/patrik/.conan2/p/b/librd719f0131302b6/p/include" "/home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/include" "/home/patrik/.conan2/p/nlohmd014ef7748f4b/p/include" "/home/patrik/.conan2/p/b/mosquf0626929e3dfa/p/include" "/home/patrik/.conan2/p/b/opense3203fa9d04c0/p/include" "/home/patrik/.conan2/p/b/zlib6d03350220ae7/p/include")
+set(CONAN_RUNTIME_LIB_DIRS "/home/patrik/.conan2/p/b/librd719f0131302b6/p/lib" "/home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/lib" "/home/patrik/.conan2/p/b/mosquf0626929e3dfa/p/lib" "/home/patrik/.conan2/p/b/opense3203fa9d04c0/p/lib" "/home/patrik/.conan2/p/b/zlib6d03350220ae7/p/lib" )
 
 endif()
 
