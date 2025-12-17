@@ -1,0 +1,14 @@
+{
+    "topics": {
+        "livingRoom":
+        [
+            {"propertyName": "livingRoom", "value": "livingRoom"},
+            {"propertyName": "queuing.strategy", "value": "fifo"}
+        ],
+        "bedRoom":
+        [
+            {"propertyName": "bedRoom", "value": "bedRoom"},
+            {"propertyName": "queuing.strategy", "value": "fifo"}
+        ]
+    }
+}

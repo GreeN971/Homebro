@@ -3,6 +3,9 @@
 
 int main(){
     
+    KafkaFactory kafka{};
+    kafka.UploadProducersConfig("../config/kafkaProducers.json");
+    kafka.UploadTopicsConfig("../config/kafkaTopics.json");
     
     //ConnectKafka();
     //ConnectMosquitto();
