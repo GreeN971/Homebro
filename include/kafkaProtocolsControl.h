@@ -32,6 +32,8 @@ public:
     std::vector<KafkaTopicPtr> GetTopicsContainer(){ return *m_topicsContainer;}
     std::string GetNameOfKey(int &i);
     void GetNumberOfRooms();
+    std::string_view GetValidTopicName(std::string_view name);
+    
 
 private:
     u_int8_t m_topicCount;

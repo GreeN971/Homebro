@@ -5,6 +5,8 @@
 #include <regex>
 #include <stdexcept>
 #include <string_view>
+#include <type_traits>
+#include <utility>
 #include "../include/kafkaProtocolsControl.h"
 
 void KafkaFactory::UploadProducersConfig(std::string_view path)
@@ -96,4 +98,18 @@ KafkaConfPtr KafkaFactory::Configure(RdKafka::Conf *conf, std::string_view key)
     }
 
     return KafkaConfPtr(conf);
+}
+
+std::string_view KafkaFactory::GetValidTopicName(std::string_view name)
+{
+    if(m_topicsContainer) {
+        for(int i = 0; i < GetTopicCount(); ++i)
+        {
+            KafkaTopicPtr topicPtr{std::move((*m_topicsContainer)[i])};
+            if(name == topicPtr->name())
+                return name;
+            (*m_topicsContainer)[i] = std::move(topicPtr);
+        }
+    }
+    std::runtime_error("Topic container is empty");
 }
