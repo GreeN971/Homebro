@@ -4,9 +4,9 @@
 int main(){
     
     KafkaFactory kafka;
-    kafka.UploadProducersConfig("../config/kafkaProducers.json");
-    kafka.UploadTopicsConfig("../config/kafkaTopics.json");
+    kafka.UploadConfig("../config/kafkaProducers.json");
     kafka.CreateTopics();
+    KafkaProducerPtr prod = kafka.CreateProd();
 
     std::string err;
     //KafkaProducerPtr prod = RdKafka::Producer::create(nullptr,err);

@@ -1,7 +1,5 @@
 {
-    "producers": {
-        "producerID": 1,
-        "config":[
+    "producers":[
             {"propertyName": "bootstrap.servers", "value": "localhost:9092"},
             {"propertyName": "topic.metadata.refresh.interval.ms", "value": "-1"},
             { "propertyName": "batch.num.messages", "value": "100000" },
@@ -16,6 +14,17 @@
 
             { "propertyName": "enable.auto.commit", "value": true},
             { "propertyName": "auto.commit.interval.ms", "value": "200"}
-        ]
-    }
+        ],
+    "topics": [
+        {"livingRoom":
+        [
+            {"propertyName": "livingRoom", "value": "livingRoom"},
+            {"propertyName": "queuing.strategy", "value": "fifo"}
+        ]},
+        {"bedRoom":
+        [
+            {"propertyName": "bedRoom", "value": "bedRoom"},
+            {"propertyName": "queuing.strategy", "value": "fifo"}
+        ]}
+    ]
 }

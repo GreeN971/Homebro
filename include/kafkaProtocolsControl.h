@@ -8,6 +8,7 @@
 #include <utility>
 #include <vector>
 #include <iterator>
+#include <map>
 
 using KafkaConfPtr = std::unique_ptr<RdKafka::Conf>;
 using KafkaProducerPtr = std::unique_ptr<RdKafka::Producer>;
@@ -17,10 +18,9 @@ using KafkaTopicPtr = std::unique_ptr<RdKafka::Topic>;
 class KafkaFactory {
 public:
     KafkaFactory() = default;
-    void UploadProducersConfig(std::string_view path); //maybe let there be a config path so when path changes no need to recompile
-    void UploadTopicsConfig(std::string_view path);
+    void UploadConfig(std::string_view path); //maybe let there be a config path so when path changes no need to recompile
 
-    KafkaProducerPtr CreateProd(const int id);
+    KafkaProducerPtr CreateProd();
     KafkaTopicPtr CreateTopics(); //difference here being that this creates all topics within the config file at once
     KafkaTopicPtr CreateTopic(std::string nameOfTopic);  //this one creates just one topic that is requested 
     KafkaConfPtr CreateProducerConfBasedOnId(const int id);
@@ -32,12 +32,10 @@ public:
     std::vector<KafkaTopicPtr> GetTopicsContainer(){ return *m_topicsContainer;}
     std::string GetNameOfKey(int &i);
     void GetNumberOfRooms();
-    std::string_view GetValidTopicName(std::string_view name);
     
 
 private:
     u_int8_t m_topicCount;
-    nlohmann::json m_TopicsConfig;
-    nlohmann::json m_ProducersConfig;
+    nlohmann::json m_config;
     std::vector<KafkaTopicPtr> *m_topicsContainer;
 };
