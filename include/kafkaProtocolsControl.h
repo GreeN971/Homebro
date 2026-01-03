@@ -21,15 +21,14 @@ public:
     void UploadConfig(std::string_view path); //maybe let there be a config path so when path changes no need to recompile
 
     KafkaProducerPtr CreateProd();
-    KafkaTopicPtr CreateTopics(); //difference here being that this creates all topics within the config file at once
+    void CreateTopics(RdKafka::Producer *prod); //difference here being that this creates all topics within the config file at once
     KafkaTopicPtr CreateTopic(std::string nameOfTopic);  //this one creates just one topic that is requested 
-    KafkaConfPtr CreateProducerConfBasedOnId(const int id);
     KafkaConfPtr CreateConf(RdKafka::Conf::ConfType type, std::string_view key);
 
     KafkaConfPtr Configure(RdKafka::Conf *conf, std::string_view key);
 
     int GetTopicCount() {return m_topicCount;}
-    std::vector<KafkaTopicPtr> GetTopicsContainer(){ return *m_topicsContainer;}
+    const std::vector<KafkaTopicPtr> &GetTopicsContainer() const noexcept { return m_topicsContainer;}
     std::string GetNameOfKey(int &i);
     void GetNumberOfRooms();
     
@@ -37,5 +36,5 @@ public:
 private:
     u_int8_t m_topicCount;
     nlohmann::json m_config;
-    std::vector<KafkaTopicPtr> *m_topicsContainer;
+    std::vector<KafkaTopicPtr> m_topicsContainer;
 };

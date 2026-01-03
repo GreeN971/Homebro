@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iterator>
 #include <librdkafka/rdkafkacpp.h>
+#include <memory>
 #include <nlohmann/json_fwd.hpp>
 #include <regex>
 #include <stdexcept>
@@ -17,12 +18,14 @@ void KafkaFactory::UploadConfig(std::string_view path)
 KafkaProducerPtr KafkaFactory::CreateProd()
 {
     std::string err;
-    if(m_config.contains("producers"))
-    {
-        auto* raw = RdKafka::Producer::create(CreateConf(RdKafka::Conf::CONF_GLOBAL, "producers").get(), err);
-        return KafkaProducerPtr(raw);
-    }
-    std::runtime_error("Can not create producer" + err);
+    if(!m_config.contains("producers"))
+        throw std::runtime_error("Not producer inside config file");
+
+    auto* raw = RdKafka::Producer::create(CreateConf(RdKafka::Conf::CONF_GLOBAL, "producers").get(), err);
+    if(!raw)
+        throw std::runtime_error("Can not create producer" + err);
+    
+    return KafkaProducerPtr(raw);
 }
 
 KafkaConfPtr KafkaFactory::CreateConf(RdKafka::Conf::ConfType type, std::string_view key)
@@ -49,7 +52,6 @@ void KafkaFactory::GetNumberOfRooms()
     }
     else
         std::runtime_error("No topics inside a config file were found");
-    
 }
 
 std::string KafkaFactory::GetNameOfKey(int &index)
@@ -60,27 +62,18 @@ std::string KafkaFactory::GetNameOfKey(int &index)
     return roomName;
 }
 
-KafkaTopicPtr KafkaFactory::CreateTopics()
+void KafkaFactory::CreateTopics(RdKafka::Producer *prod)
 {
     GetNumberOfRooms();
     std::string err;
     for(int i = 0; i <= m_topicCount; i++)
     {
         std::string nameOfTopic = GetNameOfKey(i); //this is also my key
-        //nullptr is a placeholder this is where producer will go
-        auto *raw = RdKafka::Topic::create(nullptr, nameOfTopic, CreateConf(RdKafka::Conf::CONF_TOPIC, nameOfTopic).get(), err);
-        m_topicsContainer->push_back(std::move(KafkaTopicPtr(raw)));
+        auto *raw = RdKafka::Topic::create(prod, nameOfTopic, CreateConf(RdKafka::Conf::CONF_TOPIC, nameOfTopic).get(), err);
+        if(!raw)
+            throw std::runtime_error("Can not create topic " + err);
+        m_topicsContainer.push_back(std::move(KafkaTopicPtr(raw)));
     }
-    //auto *raw = RdKafka::Topic::create(Handle *base, const std::string &topic_str, const Conf *conf, std::string &errstr)
-}
-
-KafkaConfPtr KafkaFactory::CreateProducerConfBasedOnId(int id)
-{
-    std::string err;
-    auto *raw = RdKafka::Conf::create(RdKafka::Conf::CONF_GLOBAL);
-    if(!raw)
-        throw std::runtime_error("Failed to create config");
-    return KafkaConfPtr(raw);
 }
 
 KafkaConfPtr KafkaFactory::Configure(RdKafka::Conf *conf, std::string_view key)
@@ -99,17 +92,3 @@ KafkaConfPtr KafkaFactory::Configure(RdKafka::Conf *conf, std::string_view key)
 
     return KafkaConfPtr(conf);
 }
-
-// std::string_view KafkaFactory::GetValidTopicName(std::string_view name)
-// {
-//     if(m_topicsContainer) {
-//         for(int i = 0; i < GetTopicCount(); ++i)
-//         {
-//             KafkaTopicPtr topicPtr{std::move((*m_topicsContainer)[i])};
-//             if(name == topicPtr->name())
-//                 return name;
-//             (*m_topicsContainer)[i] = std::move(topicPtr);
-//         }
-//     }
-//     std::runtime_error("Topic container is empty");
-// }

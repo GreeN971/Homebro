@@ -85,12 +85,12 @@ clean: CMakeFiles/kafkaclient.dir/clean
 CMakeFiles/kafkaclient.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles --progress-num=1,2 "Built target kafkaclient"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles --progress-num=1,2,3 "Built target kafkaclient"
 .PHONY : CMakeFiles/kafkaclient.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kafkaclient.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/kafkaclient.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/kafkaclient.dir/rule
@@ -102,7 +102,7 @@ kafkaclient: CMakeFiles/kafkaclient.dir/rule
 # codegen rule for target.
 CMakeFiles/kafkaclient.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles --progress-num=1,2 "Finished codegen for target kafkaclient"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/patrik/ITProjects/HomebroKafka/build/Debug/CMakeFiles --progress-num=1,2,3 "Finished codegen for target kafkaclient"
 .PHONY : CMakeFiles/kafkaclient.dir/codegen
 
 # clean rule for target.

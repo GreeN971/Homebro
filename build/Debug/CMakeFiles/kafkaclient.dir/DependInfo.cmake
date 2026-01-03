@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/patrik/ITProjects/HomebroKafka/src/kafkaConnection.cpp" "CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.o" "gcc" "CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.o.d"
   "/home/patrik/ITProjects/HomebroKafka/src/main.cpp" "CMakeFiles/kafkaclient.dir/src/main.cpp.o" "gcc" "CMakeFiles/kafkaclient.dir/src/main.cpp.o.d"
   "" "kafkaclient" "gcc" "CMakeFiles/kafkaclient.dir/link.d"
   )

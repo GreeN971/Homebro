@@ -129,6 +129,30 @@ kafkaclient/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/build
 .PHONY : kafkaclient/fast
 
+src/kafkaConnection.o: src/kafkaConnection.cpp.o
+.PHONY : src/kafkaConnection.o
+
+# target to build an object file
+src/kafkaConnection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.o
+.PHONY : src/kafkaConnection.cpp.o
+
+src/kafkaConnection.i: src/kafkaConnection.cpp.i
+.PHONY : src/kafkaConnection.i
+
+# target to preprocess a source file
+src/kafkaConnection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.i
+.PHONY : src/kafkaConnection.cpp.i
+
+src/kafkaConnection.s: src/kafkaConnection.cpp.s
+.PHONY : src/kafkaConnection.s
+
+# target to generate assembly for a file
+src/kafkaConnection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kafkaclient.dir/build.make CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.s
+.PHONY : src/kafkaConnection.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... kafkaclient"
+	@echo "... src/kafkaConnection.o"
+	@echo "... src/kafkaConnection.i"
+	@echo "... src/kafkaConnection.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

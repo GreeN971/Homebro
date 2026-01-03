@@ -3,6 +3,7 @@ kafkaclient: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
   CMakeFiles/kafkaclient.dir/src/main.cpp.o \
+  CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.o \
   /home/patrik/.conan2/p/b/librd719f0131302b6/p/lib/librdkafka++.a \
   /home/patrik/.conan2/p/b/librd719f0131302b6/p/lib/librdkafka.a \
   /home/patrik/.conan2/p/b/lz47182ab9ba8bdd/p/lib/liblz4.a \
@@ -39,8 +40,7 @@ kafkaclient: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o \
-  /usr/lib/ld-linux-x86-64.so.2
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o:
 
@@ -49,6 +49,8 @@ kafkaclient: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
 CMakeFiles/kafkaclient.dir/src/main.cpp.o:
+
+CMakeFiles/kafkaclient.dir/src/kafkaConnection.cpp.o:
 
 /home/patrik/.conan2/p/b/librd719f0131302b6/p/lib/librdkafka++.a:
 
@@ -123,5 +125,3 @@ CMakeFiles/kafkaclient.dir/src/main.cpp.o:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o:
-
-/usr/lib/ld-linux-x86-64.so.2:

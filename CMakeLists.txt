@@ -10,6 +10,7 @@ find_package(mosquitto)
 # Main executable
 add_executable(kafkaclient
     src/main.cpp
+    src/kafkaConnection.cpp
 )
 
 target_include_directories(kafkaclient
