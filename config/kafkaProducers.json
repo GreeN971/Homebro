@@ -12,16 +12,16 @@
             { "propertyName": "retries", "value": "200" },
             { "propertyName": "queue.buffering.max.messages", "value": "200000" },
 
-            { "propertyName": "enable.auto.commit", "value": true},
+            { "propertyName": "enable.auto.commit", "value": "true"},
             { "propertyName": "auto.commit.interval.ms", "value": "200"}
         ],
     "topics": [
-        {"livingRoom":
+        {"bedRoom":
         [
             {"propertyName": "livingRoom", "value": "livingRoom"},
             {"propertyName": "queuing.strategy", "value": "fifo"}
         ]},
-        {"bedRoom":
+        {"livingRoom":
         [
             {"propertyName": "bedRoom", "value": "bedRoom"},
             {"propertyName": "queuing.strategy", "value": "fifo"}

@@ -1,0 +1,30 @@
+{
+    "producers":[
+            {"propertyName": "bootstrap.servers", "value": "localhost:9092"},
+            {"propertyName": "topic.metadata.refresh.interval.ms", "value": "-1"},
+            { "propertyName": "batch.num.messages", "value": "100000" },
+            { "propertyName": "message.max.bytes", "value": "1000" },
+            { "propertyName": "batch.size", "value": "3000000" },
+            { "propertyName": "linger.ms", "value": "100" },
+
+            { "propertyName": "enable.idempotence", "value": "true" },
+            { "propertyName": "max.in.flight.requests.per.connection", "value": "5"},
+            { "propertyName": "retries", "value": "200" },
+            { "propertyName": "queue.buffering.max.messages", "value": "200000" },
+
+            { "propertyName": "enable.auto.commit", "value": "true"},
+            { "propertyName": "auto.commit.interval.ms", "value": "200"}
+        ],
+    "topics": [
+        {"livingRoom":
+        [
+            {"propertyName": "livingRoom", "value": "livingRoom"},
+            {"propertyName": "queuing.strategy", "value": "fifo"}
+        ]},
+        {"bedRoom":
+        [
+            {"propertyName": "bedRoom", "value": "bedRoom"},
+            {"propertyName": "queuing.strategy", "value": "fifo"}
+        ]}
+    ]
+}

@@ -2,7 +2,6 @@
 #include "../include/kafkaProtocolsControl.h"
 
 int main(){
-    
     KafkaFactory kafka;
     kafka.UploadConfig("../config/kafkaProducers.json");
     KafkaProducerPtr prod = kafka.CreateProd();

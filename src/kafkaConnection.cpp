@@ -45,20 +45,17 @@ KafkaConfPtr KafkaFactory::CreateConf(RdKafka::Conf::ConfType type, std::string_
 
 void KafkaFactory::GetNumberOfRooms()
 {
-    if(m_config.contains("topics") && m_config["topics"].is_object())
-    {
-        nlohmann::json topics = m_config["topics"];
-        m_topicCount = topics.size();
-    }
+    if(m_config.contains("topics") && m_config["topics"].is_array())
+        m_topicCount = m_config["topics"].size();
     else
-        std::runtime_error("No topics inside a config file were found");
+        throw std::runtime_error("No topics inside a config file were found");
 }
 
 std::string KafkaFactory::GetNameOfKey(int &index)
 {
     auto iterator = m_config["topics"].begin();
     std::advance(iterator, index); //moves iterator to desired index without needing a loop
-    std::string roomName = iterator.key();
+    std::string roomName = iterator->begin().key();
     return roomName;
 }
 
@@ -66,7 +63,7 @@ void KafkaFactory::CreateTopics(RdKafka::Producer *prod)
 {
     GetNumberOfRooms();
     std::string err;
-    for(int i = 0; i <= m_topicCount; i++)
+    for(int i = 0; i < m_topicCount; i++)
     {
         std::string nameOfTopic = GetNameOfKey(i); //this is also my key
         auto *raw = RdKafka::Topic::create(prod, nameOfTopic, CreateConf(RdKafka::Conf::CONF_TOPIC, nameOfTopic).get(), err);
